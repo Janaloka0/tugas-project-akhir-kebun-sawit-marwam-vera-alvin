@@ -12,6 +12,12 @@ class KategoriPanenSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $kategori_panen=[
+            ['nama_kategori'=>'kelapa sawit','deskripsi'=>'hasil panen bagus'],
+            ['nama_kategori'=>'kelapa sawit','deskripsi'=>'hasil panen bagus'],
+            ['nama_kategori'=>'kelapa sawit','deskripsi'=>'hasil panen bagus'],
+            ['nama_kategori'=>'kelapa sawit','deskripsi'=>'hasil panen bagus'],
+            ['nama_kategori'=>'kelapa sawit','deskripsi'=>'hasil panen bagus'],
+        ];
     }
 }

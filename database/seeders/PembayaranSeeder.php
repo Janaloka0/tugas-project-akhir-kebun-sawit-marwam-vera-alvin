@@ -12,6 +12,12 @@ class PembayaranSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $pembayaran=[
+            ['produksi_id'=>'','jumlah_pembayaran'=>'','tanggal_pembayaran'=>'','metode_pembayaran'=>''],
+            ['produksi_id'=>'','jumlah_pembayaran'=>'','tanggal_pembayaran'=>'','metode_pembayaran'=>''],
+            ['produksi_id'=>'','jumlah_pembayaran'=>'','tanggal_pembayaran'=>'','metode_pembayaran'=>''],
+            ['produksi_id'=>'','jumlah_pembayaran'=>'','tanggal_pembayaran'=>'','metode_pembayaran'=>''],
+            ['produksi_id'=>'','jumlah_pembayaran'=>'','tanggal_pembayaran'=>'','metode_pembayaran'=>''],
+        ];
     }
 }
