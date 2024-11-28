@@ -14,12 +14,12 @@ class pengguna extends TestCase
      */
     public function test_create(): void
     {
-       $response=$this->post('/',[
-        'nama'=>'budi',
+       $response=$this->post('/pengguna',[
+        'name'=>'budi',
         'email'=>'budi021@gmail.com',
         'password'=>'budi123',
         'role'=>'petugas kebun',
        ]);
-       $response->assertStatus(200);
+       $response->assertStatus(302);
     }
 }

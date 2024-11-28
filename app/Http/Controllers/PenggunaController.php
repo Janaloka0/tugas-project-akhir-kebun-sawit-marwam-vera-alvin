@@ -26,9 +26,15 @@ class PenggunaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Pengguna $request)
     {
-        //
+        $pengguna = Pengguna::query()->insert([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => $request->role,
+        ]);
+        return response()->json([]);
     }
 
     /**
