@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreigid('produksi_id')->constrained('produksi')->onDelete('cascade');
+            // $table->foreigid('produksi_id')->constrained('produksi')->onDelete('cascade');
+            $table->integer('produksi_id');
             $table->integer('jumlah_pembayaran');
             $table->date('tanggal_pembayaran');
             $table->string('metode_pembayaran');
