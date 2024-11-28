@@ -32,7 +32,7 @@ class Pengguna extends FormRequest
     public function massage(): array
     {
         return [
-            'nama'=>'nama harus diisi',
+            'name'=>'nama harus diisi',
             'email'=>'email harus diisi',
             'password'=>'password harus diisi',
             'role'=>'role harus diisi',
