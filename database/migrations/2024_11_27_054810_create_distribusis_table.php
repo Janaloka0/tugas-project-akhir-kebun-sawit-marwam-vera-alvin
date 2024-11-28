@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('distribusis', function (Blueprint $table) {
             $table->id();
+            $table->foreigid('produksi_id');
+            $table->string('tujuan');
+            $table->integer('jumlah');
+            $table->date('tanggal_distribusi');
             $table->timestamps();
         });
     }
