@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('distribusis', function (Blueprint $table) {
+        Schema::create('distribusi', function (Blueprint $table) {
             $table->id();
-            $table->foreigid('produksi_id');
+            $table->foreigid('produksi_id')->constrained('produksi')->onDelete('cascade');
             $table->string('tujuan');
             $table->integer('jumlah');
             $table->date('tanggal_distribusi');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('distribusis');
+        Schema::dropIfExists('distribusi');
     }
 };

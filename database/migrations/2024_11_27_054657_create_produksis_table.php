@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('produksi', function (Blueprint $table) {
             $table->id();
-            $table->foreigid('kebun_id');
+            $table->foreigid('kebun_id')->constrained('kebun')->onDelete('cascade');
             $table->integer('jumlah_tandan');
             $table->integer('berat_total');
             $table->date('tanggal_panen');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
-            $table->foreigid('pengguna_id');
+            $table->foreigid('pengguna_id')->constrained('pengguna')->onDelete('cascade');
             $table->string('nama_petugas');
             $table->string('jabatan');
             $table->date('tanggal_bergabung');
