@@ -20,6 +20,15 @@ class pengguna extends TestCase
         'password'=>'budi123',
         'role'=>'petugas kebun',
        ]);
-       $response->assertStatus(302);
+    //    $response->assertStatus(302);
+        $response->assertSessionHasErrors([
+            'name', 
+            'email', 
+            'password',
+            'role'
+        ]);
+
+        $response->assertStatus(302); // Redirect setelah registrasi berhasil
+        $this->assertAuthenticated();
     }
 }

@@ -12,8 +12,13 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/pengguna');
+        $response = $this->get('/pengguna',[
+            'name'=>'',
+            'email'=>'budi021@gmail.com',
+            'password'=>'budi123',
+            'role'=>'petugas kebun',
+        ]);
 
-        $response->assertStatus(302);
+        $response->assertStatus(201);
     }
 }

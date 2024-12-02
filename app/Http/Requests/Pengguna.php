@@ -22,7 +22,7 @@ class Pengguna extends FormRequest
     public function rules(): array
     {
         return [
-            'nama'=>required(),
+            'name'=>required(),
             'email'=>required(),
             'password'=>required(),
             'role'=>required(),
@@ -32,7 +32,7 @@ class Pengguna extends FormRequest
     public function massage(): array
     {
         return [
-            'name'=>'nama harus diisi',
+            'name'=>'name harus diisi',
             'email'=>'email harus diisi',
             'password'=>'password harus diisi',
             'role'=>'role harus diisi',
