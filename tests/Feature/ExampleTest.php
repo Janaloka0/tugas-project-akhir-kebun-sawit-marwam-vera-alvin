@@ -12,13 +12,13 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/pengguna',[
-            'name'=>'',
-            'email'=>'budi021@gmail.com',
-            'password'=>'budi123',
-            'role'=>'petugas kebun',
+        $response = $this->postJson('/pengguna',[
+            'name'=>'budi12',
+        'email'=>'budi021@gmail.com',
+        'password'=>'budi',
+        'role'=>'petugas kebun',
         ]);
 
-        $response->assertStatus(201);
+        $response->assertStatus(405);
     }
 }

@@ -28,13 +28,18 @@ class PenggunaController extends Controller
      */
     public function store(Pengguna $request)
     {
-        $pengguna = Pengguna::query()->insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'role' => $request->role,
+        // Data sudah tervalidasi di sini
+        $validated = $request->validated();
+
+        // Simpan pengguna baru
+        Pengguna::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'role' => $validated['role'],
         ]);
-        return response()->json([]);
+
+        return response()->json(['message' => 'User registered successfully!'], 201);
     }
 
     /**
