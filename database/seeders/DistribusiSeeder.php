@@ -14,11 +14,11 @@ class DistribusiSeeder extends Seeder
     public function run(): void
     {
         $distribusi = [
-            ['produksi_id' => '1', 'tujuan' => 'kebun', 'jumlah' => '10',],
-            ['produksi_id' => '2', 'tujuan' => 'kebun', 'jumlah' => '10',],
-            ['produksi_id' => '3', 'tujuan' => 'kebun', 'jumlah' => '10',],
-            ['produksi_id' => '4', 'tujuan' => 'kebun', 'jumlah' => '10',],
-            ['produksi_id' => '5', 'tujuan' => 'kebun', 'jumlah' => '10',],
+            ['produksi_id' => '1', 'tujuan' => 'kebun', 'jumlah' => '10', 'tanggal_distribusi' => '2020-01-07'],
+            ['produksi_id' => '2', 'tujuan' => 'kebun', 'jumlah' => '10', 'tanggal_distribusi' => '2020-01-07'],
+            ['produksi_id' => '3', 'tujuan' => 'kebun', 'jumlah' => '10', 'tanggal_distribusi' => '2020-01-07'],
+            ['produksi_id' => '4', 'tujuan' => 'kebun', 'jumlah' => '10', 'tanggal_distribusi' => '2020-01-07'],
+            ['produksi_id' => '5', 'tujuan' => 'kebun', 'jumlah' => '10', 'tanggal_distribusi' => '2020-01-07'],
         ];
 
         DB::table('distribusi')->insert($distribusi);
