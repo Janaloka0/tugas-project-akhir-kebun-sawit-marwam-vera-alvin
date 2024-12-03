@@ -14,13 +14,13 @@ class PetugasSeeder extends Seeder
     public function run(): void
     {
         $petugas = [
-            ['pengguna' => 'Jaka', 'nama petugas' => 'Budi', 'jabatan' => 'admin'],
-            ['pengguna' => 'Budi', 'nama petugas' => 'Bagas', 'jabatan' => 'petugas kebun'],
-            ['pengguna' => 'Airin', 'nama petugas' => 'Budi', 'jabatan' => 'manajer'],
-            ['pengguna' => 'Samuel', 'nama petugas' => 'Budi', 'jabatan' => 'manajer'],
-            ['pengguna' => 'Bagas', 'nama petugas' => 'Budi', 'jabatan' => 'manajer'],
+            ['pengguna_id'=>'1' ,'nama_petugas' => 'Jaka', 'jabatan' => 'admin', 'tanggal_bergabung' => '2020-01-07'],
+            ['pengguna_id'=>'1' ,'nama_petugas' => 'Budi', 'jabatan' => 'petugas kebun' , 'tanggal_bergabung' => '2020-01-07'],
+            ['pengguna_id'=>'1' ,'nama_petugas' => 'Airin', 'jabatan' => 'manajer' , 'tanggal_bergabung' => '2020-01-07'],
+            ['pengguna_id'=>'1' ,'nama_petugas' => 'Samuel', 'jabatan' => 'manajer' , 'tanggal_bergabung' => '2020-01-07'],
+            ['pengguna_id'=>'1' ,'nama_petugas' => 'Bagas', 'jabatan' => 'petugas kebun' , 'tanggal_bergabung' => '2020-01-07'],
 
         ];
-        DB::table('pengguna')->insert($petugas);
+        DB::table('petugas')->insert($petugas);
     }
 }
