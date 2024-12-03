@@ -26,9 +26,20 @@ class PenggunaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Pengguna $request)
     {
-        //
+        // Data sudah tervalidasi di sini
+        $validated = $request->validated();
+
+        // Simpan pengguna baru
+        Pengguna::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'role' => $validated['role'],
+        ]);
+
+        return response()->json(['message' => 'User registered successfully!'], 201);
     }
 
     /**
