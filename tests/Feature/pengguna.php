@@ -22,8 +22,8 @@ class pengguna extends TestCase
     //    ]);
     // //    $response->assertStatus(302);
     //     $response->assertSessionHasErrors([
-    //         'name'=>'', 
-    //         'email'=>'', 
+    //         'name'=>'',
+    //         'email'=>'',
     //         'password'=>'',
     //         'role'=>''
     //     ]);
@@ -39,7 +39,7 @@ class pengguna extends TestCase
 
         // Data registrasi dengan email yang sama
         $response = $this->postJson('/register', [
-            'nama' => 'User 2',
+            'nama' => 'User 1',
             'email' => 'budi021@gmail.com',  // Email yang sudah terdaftar
             'password' => 'password123',
             'password_confirmation' => 'password123',
