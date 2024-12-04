@@ -28,7 +28,6 @@
                     <option value="petugas kebun" {{ $distribusi->tanggal_distribusi == 'petugas kebun' ? 'selected' : '' }}>Petugas Kebun</option>
                     <option value="manajer" {{ $distribusi->tanggal_distribusi == 'manajer' ? 'selected' : '' }}>Manajer</option>
                 </select> -->
-                label
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
