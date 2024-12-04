@@ -17,8 +17,6 @@
             <th>jabatan</th>
             <th>tanggal bergabung</th>
             <th>Aksi</th>
-            
-            
         </tr>
     </thead>
     <tbody>
