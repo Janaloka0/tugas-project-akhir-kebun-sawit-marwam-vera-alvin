@@ -50,16 +50,21 @@ class ProduksiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produksi $produksi)
+    public function update(ProduksiRequest $request, $id)
     {
-        //
+        $validated = $request->validated();
+        $produksi = Produksi::findOrFail($id);
+        $produksi->update($validated);
+        return redirect()->route('Produksi.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produksi $produksi)
+    public function destroy($id)
     {
-        //
+        $produksi = Produksi::findOrFail($id);
+        $produksi->delete();
+        return redirect()->route('produksi.index');
     }
 }
