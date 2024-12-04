@@ -26,7 +26,7 @@ class PenggunaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Pengguna $request)
+    public function store(PenggunaRequest $request)
     {
         // Data sudah tervalidasi di sini
         $validated = $request->validated();
