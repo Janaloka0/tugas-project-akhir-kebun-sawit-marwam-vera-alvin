@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengguna;
-use Illuminate\Http\Request;
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:4293575342.
+use App\Http\Requests\PenggunaRequest;
 
 class PenggunaController extends Controller
 {
@@ -12,7 +13,8 @@ class PenggunaController extends Controller
      */
     public function index()
     {
-        //
+        $pengguna = Pengguna::all();
+        return view('Pengguna.index', compact('pengguna'));
     }
 
     /**
@@ -20,7 +22,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Pengguna.create');
     }
 
     /**
@@ -28,18 +30,18 @@ class PenggunaController extends Controller
      */
     public function store(PenggunaRequest $request)
     {
-        // Data sudah tervalidasi di sini
         $validated = $request->validated();
 
-        // Simpan pengguna baru
         Pengguna::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password']),
             'role' => $validated['role'],
         ]);
-
-        return response()->json(['message' => 'User registered successfully!'], 201);
+    
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('pengguna.index')->with('success', 'Pengguna berhasil ditambahkan.');
+    
     }
 
     /**
@@ -53,24 +55,30 @@ class PenggunaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pengguna $pengguna)
+    public function edit($id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        return view('Pengguna.edit', compact('pengguna'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pengguna $pengguna)
+    public function update(PenggunaRequest $request, $id)
     {
-        //
+        $validated = $request->validated();
+        $pengguna = Pengguna::findOrFail($id);
+        $pengguna->update($validated);
+        return redirect()->route('pengguna.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pengguna $pengguna)
+    public function destroy($id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        $pengguna->delete();
+        return redirect()->route('pengguna.index');
     }
 }

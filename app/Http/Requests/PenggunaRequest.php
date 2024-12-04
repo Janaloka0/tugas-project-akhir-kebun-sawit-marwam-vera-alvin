@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class Pengguna extends FormRequest
+
+class PenggunaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,29 +23,31 @@ class Pengguna extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('pengguna');
         return [
             'name' => 'required|string|max:255',
-            'email' => ['required', 'email', Rule::unique('pengguna')->ignore($this->route('pengguna'))], // Cek email yang unik
-            'password' => 'required|min:8|confirmed',
-            'role' => 'required|string'
+            'email' => 
+            [
+                'required','email','max:255','unique:pengguna,email,' . $id, // Pastikan email unik, kecuali untuk data yang sedang diedit
+            ],
+            'password' => $this->isMethod('post') ? 'required|min:8|confirmed' : 'nullable|min:8|confirmed',
+            'role' => 'required|in:admin,petugas kebun,manajer',
         ];
     }
 
-    public function massage(): array
-    {
+    public function message(): array
+    {        
         return [
-            // 'name'=>'name harus diisi',
-            // 'email'=>'email harus diisi',
-            // 'password'=>'password harus diisi',
-            // 'role'=>'role harus diisi',
-
             'name.required' => 'Nama pengguna harus diisi.',
+            'name.max' => 'Nama pengguna tidak boleh lebih dari 255 karakter.',
             'email.required' => 'Email pengguna harus diisi.',
+            'email.email' => 'Format email tidak valid.',
             'email.unique' => 'Email sudah terdaftar.',
             'password.required' => 'Password harus diisi.',
             'password.min' => 'Password harus memiliki minimal 8 karakter.',
-            'role.required' => 'Role harus diisi.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok.',
+            'role.required' => 'Role harus dipilih.',
+            'role.in' => 'Role tidak valid.',
         ];
-
     }
 }
