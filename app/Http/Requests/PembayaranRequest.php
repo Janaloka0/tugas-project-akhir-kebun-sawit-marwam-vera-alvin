@@ -11,7 +11,7 @@ class PembayaranRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,21 +22,21 @@ class PembayaranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_produksi'=>'required|numeric',
+
+            'produksi_id'=>'required|numeric',
             'jumlah_pembayaran'=>'required|numeric',
-            'tanggal_pembayaran'=>'required|date',
+            'tanggal_pembayaran'=>'required|numeric',
             'metode_pembayaran'=>'required',
         ];
     }
 
-    public function massage(): array
-    {
-        return[
-            'id_produksi.required'=>'isi id produk',
-            'jumlah_pembayaran.required'=>'masukan jumlah pembayaran',
-            'tanggal_pembayaran.required'=>'tanggal pembayaran ',
-            'metode_pembayaran.required'=>'pilih metode pembayaran',
+    public function message(): array
+    {        
+        return [
+            'produksi_id'=>'id produksi harus diisi',
+            'jumlah_pembayaran'=>'jumlah pembayaran harus diisi',
+            'tanggal_pembayaran'=>'tanggal pembayaran harus diisi',
+            'metode_pembayaran'=>'metode pembayaran harus diisi'
         ];
     }
 
-}

@@ -12,10 +12,16 @@
     <thead class="table-light">
         <tr>
             <th>#</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Aksi</th>
+            <th>name.required</th>
+            <th>name.max</th>
+            <th>email.required</th>
+            <th>email.email</th>
+            <th>email.unique</th>
+            <th>password.required</th>
+            <th>password.min</th>
+            <th>password.confirmed</th>
+            <th>role.required</th>
+            <th>role.in</th>
         </tr>
     </thead>
     <tbody>

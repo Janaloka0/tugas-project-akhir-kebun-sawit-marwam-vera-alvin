@@ -11,7 +11,7 @@ class ProduksiRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,17 +25,17 @@ class ProduksiRequest extends FormRequest
             'kebun_id'=>'required|numeric',
             'jumlah_tandan'=>'required|numeric',
             'berat_total'=>'required|numeric',
+            'tanggal_panen'=>'required|date'
+        ];
+    }
+
+    public function message(): array{
+        return[
+            'kebun_id.required'=>'Kebun harus diisi',
+            'jumlah_tandan.required'=>'Jumlah tandan harus diisi',
+            'berat_total.required'=>'Berat total harus diisi',
+            'tanggal_panen.required'=>'Tanggal panen harus diisi',
             'tanggal_panen'=>'required|date',
         ];
     }
 
-    public function message(): array
-    {
-        return[
-            'kebun_id.required'=>'isi id kebun',
-            'jumlah_tandan.required'=>'jumlah tandan harus di isi',
-            'berat_total.required'=>'berat total',
-            'tanggal_panen.required'=>'tanggal panen',
-        ];
-    } 
-}

@@ -12,7 +12,8 @@ class DistribusiController extends Controller
      */
     public function index()
     {
-        //
+        $distribusi = Distribusi::all();
+        return view('Distribusi.index', compact('distribusi'));
     }
 
     /**
@@ -20,15 +21,25 @@ class DistribusiController extends Controller
      */
     public function create()
     {
-        //
+        return view('Distribusi.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DistribusiRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        Pengguna::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'role' => $validated['role'],
+        ]);
+    
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('pengguna.index')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     /**
@@ -42,9 +53,10 @@ class DistribusiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Distribusi $distribusi)
+    public function edit($id)
     {
-        //
+        $distribusi = Distribusi::findOrFail($id);
+        return view('Distribusi.edit', compact('distribusi'));
     }
 
     /**
