@@ -13,6 +13,13 @@ class DistribusiSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $distribusi = [
+            ['produksi' => '', 'tujuan' => '', 'jumlah' => '', 'tanggal distribusi' => ''],
+            ['produksi' => '', 'tujuan' => '', 'jumlah' => '', 'tanggal distribusi' => ''],
+            ['produksi' => '', 'tujuan' => '', 'jumlah' => '', 'tanggal distribusi' => ''],
+            ['produksi' => '', 'tujuan' => '', 'jumlah' => '', 'tanggal distribusi' => ''],
+            ['produksi' => '', 'tujuan' => '', 'jumlah' => '', 'tanggal distribusi' => ''],
+
+        ];
     }
 }

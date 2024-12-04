@@ -28,7 +28,13 @@ class PenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pengguna = Pengguna::query()->insert([
+            'nama'=> $request ->nama,
+            'email'=> $request ->email,
+            'password'=> $request ->password,
+            'role'=> $request ->role,
+
+        ]);
     }
 
     /**

@@ -20,6 +20,6 @@ class PetugasSeeder extends Seeder
             ['pengguna' => 'Bagas', 'nama petugas' => 'Budi', 'jabatan' => 'manajer'],
 
         ];
-        DB::table('pengguna')->insert($petugas);
+        
     }
 }
