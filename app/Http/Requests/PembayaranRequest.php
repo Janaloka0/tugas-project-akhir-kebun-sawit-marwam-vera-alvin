@@ -22,6 +22,7 @@ class PembayaranRequest extends FormRequest
     public function rules(): array
     {
         return [
+
             'produksi_id'=>'required|numeric',
             'jumlah_pembayaran'=>'required|numeric',
             'tanggal_pembayaran'=>'required|numeric',
@@ -38,4 +39,4 @@ class PembayaranRequest extends FormRequest
             'metode_pembayaran'=>'metode pembayaran harus diisi'
         ];
     }
-}
+

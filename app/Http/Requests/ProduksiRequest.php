@@ -35,7 +35,7 @@ class ProduksiRequest extends FormRequest
             'jumlah_tandan.required'=>'Jumlah tandan harus diisi',
             'berat_total.required'=>'Berat total harus diisi',
             'tanggal_panen.required'=>'Tanggal panen harus diisi',
-
+            'tanggal_panen'=>'required|date',
         ];
     }
-}
+
