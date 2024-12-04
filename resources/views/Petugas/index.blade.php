@@ -5,31 +5,33 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Daftar Pengguna</h1>
-    <a href="{{ route(' Petugas.create') }}" class="btn btn-primary">Tambah Petugas</a>
+    <a href="{{ route('petugas.create') }}" class="btn btn-primary">Tambah Petugas</a>
 </div>
 
 <table class="table table-bordered">
     <thead class="table-light">
         <tr>
-            <th>#</th>
-            <th>pengguna_id</th>
-            <th>nama_petugas</th>
+            <!-- <th>#</th> -->
+            <th>pengguna id</th>
+            <th>nama petugas</th>
             <th>jabatan</th>
-            <th>tanggal_bergabung</th>
+            <th>tanggal bergabung</th>
+            <th>Aksi</th>
             
             
         </tr>
     </thead>
     <tbody>
-        @forelse ($Petugas as $index => $user)
+        @forelse ($petugas as $index => $user)
             <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
+                <!-- <td>{{ $index + 1 }}</td> -->
+                <td>{{ $user->pengguna_id }}</td>
+                <td>{{ $user->nama_petugas }}</td>
+                <td>{{ $user->jabatan }}</td>
+                <td>{{ $user->tanggal_bergabung }}</td>
                 <td>
-                    <a href="{{ route('Petugas.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('Petugas.destroy', $user->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('petugas.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ route('petugas.destroy', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>

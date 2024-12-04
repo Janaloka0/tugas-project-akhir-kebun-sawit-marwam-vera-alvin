@@ -3,38 +3,38 @@
 </div>
 @extends('layout')
 
-@section('title', 'Edit Pengguna')
+@section('title', 'Edit Petugas')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>Edit Pengguna</h3>
+        <h3>Edit Petugas</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('pengguna.update', $pengguna->id) }}" method="POST">
+        <form action="{{ route('petugas.update', $petugas->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $pengguna->name) }}" required>
+                <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $petugas->name) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ old('email', $pengguna->email) }}" required>
+                <label for="tanggal_bergabung" class="form-label">tanggal bergabung</label>
+                <input type="tanggal_bergabung" class="form-control" name="tanggal_bergabung" id="tanggal_bergabung" value="{{ old('tanggal_bergabung', $petugas->tanggal_bergabung) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
+                <label for="role" class="form-label">jabatan</label>
                 <select class="form-select" name="role" id="role" required>
-                    <option value="admin" {{ $pengguna->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                    <option value="petugas kebun" {{ $pengguna->role == 'petugas kebun' ? 'selected' : '' }}>Petugas Kebun</option>
-                    <option value="manajer" {{ $pengguna->role == 'manajer' ? 'selected' : '' }}>Manajer</option>
+                    <option value="admin" {{ $petugas->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                    <option value="petugas kebun" {{ $petugas->role == 'petugas kebun' ? 'selected' : '' }}>Petugas Kebun</option>
+                    <option value="manajer" {{ $petugas->role == 'manajer' ? 'selected' : '' }}>Manajer</option>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-            <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">Kembali</a>
+            <a href="{{ route('petugas.index') }}" class="btn btn-secondary">Kembali</a>
         </form>
     </div>
 </div>
