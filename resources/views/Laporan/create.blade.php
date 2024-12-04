@@ -1,42 +1,28 @@
 @extends('layout')
 
-@section('title', 'Tambah Pengguna')
+@section('title', 'Tambah Laporan')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>Tambah Pengguna</h3>
+        <h3>Tambah Laporan</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('pengguna.store') }}" method="POST">
+        <form action="{{ route('laporan.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+                <label for="file_path" class="form-label">file path</label>
+                <input type="file" class="form-control" name="file_path" id="file_path" value="{{ old('file_path') }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" required>
+                <label for="file_type" class="form-label">file type</label>
+                <input type="file" class="form-control" name="file_type" id="file_type" value="{{ old('file_type') }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" name="role" id="role" required>
-                    <option value="admin">Admin</option>
-                    <option value="petugas kebun">Petugas Kebun</option>
-                    <option value="manajer">Manajer</option>
-                </select>
+                <label for="tanggal_laporan" class="form-label">tanggal laporan</label>
+                <input type="date" class="form-control" name="tanggal_laporan" id="tanggal_laporan" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan</button>

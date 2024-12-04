@@ -12,7 +12,8 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        //
+        $laporan = Laporan::all();
+        return view('Laporan.index', compact('laporan'));
     }
 
     /**
@@ -20,15 +21,25 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        //
+        return view('Laporan.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LaporanRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        Laporan::create([
+            'kebun_id' => $validated['kebun_id'],
+            'file_path' => $validated['file_path'],
+            'file_type' => bcrypt($validated['file_type']),
+            'tanggal_laporan' => $validated['tanggal_laporan'],
+        ]);
+    
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('laporan.index')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     /**
@@ -44,15 +55,19 @@ class LaporanController extends Controller
      */
     public function edit(Laporan $laporan)
     {
-        //
+        $laporan = Laporan::findOrFail($id);
+        return view('Laporan.edit', compact('laporan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Laporan $laporan)
+    public function update(LaporanRequest $request,$id)
     {
-        //
+        $validated = $request->validated();
+        $laporan = Laporan::findOrFail($id);
+        $laporan->update($validated);
+        return redirect()->route('laporan.index');
     }
 
     /**
@@ -60,6 +75,8 @@ class LaporanController extends Controller
      */
     public function destroy(Laporan $laporan)
     {
-        //
+        $laporan = Laporan::findOrFail($id);
+        $laporan->delete();
+        return redirect()->route('laporan.index');
     }
 }

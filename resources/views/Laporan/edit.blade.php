@@ -12,23 +12,28 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $Laporan->name) }}" required>
+                <label for="file_path" class="form-label">file path</label>
+                <input type="file" class="form-control" name="file_path" id="file_path" value="{{ old('file_path', $Laporan->file_path) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ old('email', $Laporan->email) }}" required>
+                <label for="file_type" class="form-label">file type</label>
+                <input type="file" class="form-control" name="file_type" id="file_type" value="{{ old('file_type', $Laporan->file_type) }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="tanggal_laporan" class="form-label">tanggal laporan</label>
+                <input type="file" class="form-control" name="tanggal_laporan" id="tanggal_laporan" value="{{ old('tanggal_laporan', $Laporan->tanggal_laporan) }}" required>
             </div>
 
-            <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" name="role" id="role" required>
+            <!-- <div class="mb-3">
+                <label for="tanggal_laporan" class="form-label">tanggal laporan</label>
+                <select class="form-select" name="tanggal_laporan" id="tanggal_laporan" required>
                     <option value="admin" {{ $laporan->role == 'admin' ? 'selected' : '' }}>Admin</option>
                     <option value="petugas kebun" {{ $laporan->role == 'petugas kebun' ? 'selected' : '' }}>Petugas Kebun</option>
                     <option value="manajer" {{ $kebun->role == 'manajer' ? 'selected' : '' }}>Manajer</option>
                 </select>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
             <a href="{{ route('kebun.index') }}" class="btn btn-secondary">Kembali</a>
