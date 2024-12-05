@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Daftar Pengguna</h1>
-    <a href="{{ route('Kebun.create') }}" class="btn btn-primary">Tambah Laporan</a>
+    <a href="{{ route('kebun.create') }}" class="btn btn-primary">Tambah Laporan</a>
 </div>
 
 <table class="table table-bordered">
@@ -15,21 +15,24 @@
             <th>lokasi</th>
             <th>luas</th>
             <th>status</th>
-            <th>tanggal_tanam</th>
-            <th>tanggal_panen</th>
+            <th>tanggal tanam</th>
+            <th>tanggal panen</th>
+            <th>Aksi</th>
             
         </tr>
     </thead>
     <tbody>
-        @forelse ($Kebun as $index => $user)
+        @forelse ($kebun as $index => $user)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
+                <td>{{ $user->lokasi }}</td>
+                <td>{{ $user->luas }}</td>
+                <td>{{ $user->status }}</td>
+                <td>{{ $user->tanggal_tanam }}</td>
+                <td>{{ $user->tanggal_panen }}</td>
                 <td>
-                    <a href="{{ route('Kebun.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('Kebun.destroy', $user->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('kebun.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ route('kebun.destroy', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>

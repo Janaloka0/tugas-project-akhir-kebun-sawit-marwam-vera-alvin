@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kebun;
 use Illuminate\Http\Request;
+use App\Http\Requests\KebunRequest;
 
 class KebunController extends Controller
 {
@@ -12,7 +13,8 @@ class KebunController extends Controller
      */
     public function index()
     {
-        //
+        $kebun = Kebun::all();
+        return view('Kebun.index', compact('kebun'));
     }
 
     /**
@@ -20,7 +22,7 @@ class KebunController extends Controller
      */
     public function create()
     {
-        //
+        return view('kebun.create');
     }
 
     /**
@@ -42,17 +44,21 @@ class KebunController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kebun $kebun)
+    public function edit($id)
     {
-        //
+        $kebun = Kebun::findOrFail($id);
+        return view('Kebun.edit', compact('kebun'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kebun $kebun)
+    public function update(KebunRequest $request,$id)
     {
-        //
+        $validated = $request->validated();
+        $kebun = Kebun::findOrFail($id);
+        $kebun->update($validated);
+        return redirect()->route('kebun.index');
     }
 
     /**
@@ -60,6 +66,8 @@ class KebunController extends Controller
      */
     public function destroy(Kebun $kebun)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        $pengguna->delete();
+        return redirect()->route('pengguna.index');
     }
 }
