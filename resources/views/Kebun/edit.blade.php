@@ -8,26 +8,32 @@
         <h3>Edit Kebun</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('Kebun.update', $Kebun->id) }}" method="POST">
+        <form action="{{ route('kebun.update', $kebun->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $Kebun->name) }}" required>
+                <label for="lokasi" class="form-label">Lokasi</label>
+                <input type="text" class="form-control" name="lokasi" id="lokasi" value="{{ old('lokasi', $kebun->lokasi) }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="luas" class="form-label">Luas</label>
+                <input type="text" class="form-control" name="luas" id="luas" value="{{ old('luas', $kebun->luas) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ old('email', $Kebun->email) }}" required>
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" name="status" id="status" value="{{ old('status', $kebun->status) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" name="role" id="role" required>
-                    <option value="admin" {{ $kebun->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                    <option value="petugas kebun" {{ $kebun->role == 'petugas kebun' ? 'selected' : '' }}>Petugas Kebun</option>
-                    <option value="manajer" {{ $kebun->role == 'manajer' ? 'selected' : '' }}>Manajer</option>
-                </select>
+                <label for="tanggal_tanam" class="form-label">Tanggal Tanam</label>
+                <input type="date" class="form-control" name="tanggal_tanam" id="tanggal_tanam" value="{{ old('tanggal_tanam', $kebun->tanggal_tanam) }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="tanggal_panen" class="form-label">Tanggal Panen</label>
+                <input type="date" class="form-control" name="tanggal_panen" id="tanggal_panen" value="{{ old('tanggal_panen', $kebun->tanggal_panen) }}" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>

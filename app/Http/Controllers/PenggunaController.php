@@ -22,7 +22,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        return view('Distribusi.create');
+        return view('Pengguna.create');
     }
 
     /**

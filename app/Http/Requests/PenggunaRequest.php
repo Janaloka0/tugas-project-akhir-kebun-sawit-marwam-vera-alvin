@@ -24,11 +24,12 @@ class PenggunaRequest extends FormRequest
     public function rules(): array
     {
         $id = $this->route('pengguna');
+        // $email = request('email');
         return [
             'name' => 'required|string|max:255',
             'email' => 
             [
-                'required','email','max:255','unique:pengguna,email,' . $id, // Pastikan email unik, kecuali untuk data yang sedang diedit
+                'required','email','max:255','unique:pengguna,email,' // Pastikan email unik, kecuali untuk data yang sedang diedit
             ],
             'password' => $this->isMethod('post') ? 'required|min:8|confirmed' : 'nullable|min:8|confirmed',
             'role' => 'required|in:admin,petugas kebun,manajer',
