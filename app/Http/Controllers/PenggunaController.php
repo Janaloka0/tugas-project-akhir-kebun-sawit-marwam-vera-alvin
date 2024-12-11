@@ -15,6 +15,8 @@ class PenggunaController extends Controller
     {
         $pengguna = Pengguna::all();
         return view('Pengguna.index', compact('pengguna'));
+        return view('layouts.header', compact('pengguna'));
+        return view('dashboard', compact('pengguna'));
     }
 
     /**
