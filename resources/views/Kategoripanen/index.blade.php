@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($produksi as $index => $user)
+        @forelse ($kategoripanen as $index => $user)
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $user->name }}</td>

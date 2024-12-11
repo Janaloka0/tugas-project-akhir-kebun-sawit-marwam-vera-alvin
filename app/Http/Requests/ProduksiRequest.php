@@ -37,5 +37,5 @@ class ProduksiRequest extends FormRequest
             'berat_total.required'=>'berat total',
             'tanggal_panen.required'=>'tanggal panen',
         ];
-    } 
+    }
 }
