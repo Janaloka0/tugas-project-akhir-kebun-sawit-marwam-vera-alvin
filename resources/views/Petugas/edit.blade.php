@@ -1,6 +1,3 @@
-<div>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
-</div>
 @extends('layout')
 
 @section('title', 'Edit Petugas')
@@ -21,7 +18,7 @@
 
             <div class="mb-3">
                 <label for="tanggal_bergabung" class="form-label">tanggal bergabung</label>
-                <input type="tanggal_bergabung" class="form-control" name="tanggal_bergabung" id="tanggal_bergabung" value="{{ old('tanggal_bergabung', $petugas->tanggal_bergabung) }}" required>
+                <input type="date" class="form-control" name="tanggal_bergabung" id="tanggal_bergabung" value="{{ old('tanggal_bergabung', $petugas->tanggal_bergabung) }}" required>
             </div>
 
             <div class="mb-3">

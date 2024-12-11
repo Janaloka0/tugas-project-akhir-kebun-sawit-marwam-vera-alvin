@@ -43,9 +43,10 @@ class PetugasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Petugas $petugas)
+    public function edit($id)
     {
-        //
+        $petugas = Petugas::findOrFail($id);
+        return view('Petugas.edit', compact('petugas'));
     }
 
     /**
@@ -53,7 +54,10 @@ class PetugasController extends Controller
      */
     public function update(Request $request, Petugas $petugas)
     {
-        //
+        $validated = $request->validated();
+        $petugas = Petugas::findOrFail($id);
+        $petugas->update($validated);
+        return redirect()->route('petugas.index');
     }
 
     /**

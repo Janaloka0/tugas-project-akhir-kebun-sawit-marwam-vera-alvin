@@ -5,7 +5,6 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Daftar Pengguna</h1>
-    <a href="{{ route('laporan.create') }}" class="btn btn-primary">Tambah Laporan</a>
 </div>
 
 <table class="table table-bordered">
@@ -43,5 +42,6 @@
         @endforelse
     </tbody>
 </table>
+<a href="{{ route('laporan.create') }}" class="btn btn-primary">Tambah Laporan</a>
 @endsection
 
