@@ -26,7 +26,7 @@ class LoginRequest extends FormRequest
             'password' => 'required|min:6',
         ];
     }
-
+ 
     public function messages()
     {
         return [

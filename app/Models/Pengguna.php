@@ -20,7 +20,7 @@ class Pengguna extends Authenticatable
         'password',
         'role',
     ];
-
+ 
     protected $hidden = [
         'password',
         'remember_token',

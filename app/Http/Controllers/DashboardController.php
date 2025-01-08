@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
-{
+{ 
     public function index()
     {
         // Misalnya, ambil data pengguna atau sesuatu yang ingin ditampilkan di dashboard

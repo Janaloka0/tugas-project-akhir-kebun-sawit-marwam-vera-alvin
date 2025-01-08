@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <style> 
         body {
             background: url('//i0.wp.com/gapki.id/en/dir-site/uploads/2022/08/oilpalm_palmoil_staticflickr.com_.jpg?w=1009&ssl=1') no-repeat center center fixed;
             background-size: cover;

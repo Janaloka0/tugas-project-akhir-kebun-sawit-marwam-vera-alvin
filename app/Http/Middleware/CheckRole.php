@@ -24,5 +24,5 @@ class CheckRole
 
         // Jika tidak, arahkan ke halaman login atau halaman error
         return redirect('/')->withErrors('Anda tidak memiliki akses untuk halaman ini.');
-    }
+    } 
 }

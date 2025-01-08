@@ -12,7 +12,7 @@ class AdminController extends Controller
         // Menambahkan middleware langsung di dalam controller
         $this->middleware(CheckRole::class.':manajer');  // 'manajer' adalah role yang diinginkan
     }
-
+ 
     public function index()
     {
         return view('dashboard');

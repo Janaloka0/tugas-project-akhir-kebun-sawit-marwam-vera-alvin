@@ -17,5 +17,3 @@ Route::get('/admin-dashboard', function () {
 Route::get('/manajer-dashboard', function () {
     return view('dashboard');
 })->middleware(CheckRole::class.':manajer');  // Menambahkan role 'manajer' sebagai argumen untuk middleware
-
-

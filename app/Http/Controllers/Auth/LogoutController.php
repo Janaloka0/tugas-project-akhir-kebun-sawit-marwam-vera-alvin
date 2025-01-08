@@ -11,7 +11,7 @@ class LogoutController extends Controller
     public function logout()
     {
         Auth::logout();
-
+ 
         session()->invalidate(); // Invalidasi sesi
         session()->regenerateToken(); // Regenerasi CSRF token untuk keamanan
 
