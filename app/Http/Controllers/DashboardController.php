@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
         if ($user->role == 'admin') {
             // Tampilkan dashboard khusus admin
-            return view('admin.dashboard');
+            return view('admin.dashboard')->with('layouts', 'layouts.admin');
         } elseif ($user->role == 'manajer') {
             // Tampilkan dashboard untuk manajer
             return view('manajer.dashboard');
